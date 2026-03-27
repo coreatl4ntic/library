@@ -11,7 +11,7 @@ local Window = Library:Window({
     },
     CloseUIButton = {
         Enabled = true,
-        Text = "x2zu"
+        Text = "atl4ntic"
     }
 })
 
