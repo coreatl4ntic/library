@@ -158,7 +158,7 @@ local themes = {
 }
 
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "atl4ntic"
+ScreenGui.Name = "atl4ntic framework"
 ScreenGui.Parent = not game:GetService("RunService"):IsStudio() and game:GetService("CoreGui") or game:GetService("Players").LocalPlayer.PlayerGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -185,29 +185,18 @@ do
 				for _, obj in pairs(objs) do
 					if SaveTheme[name] then
 						for _, obj in pairs(SaveTheme[name]) do
-							if obj:IsA("UIGradient") then
-							if typeof(color) == "ColorSequence" then
-								obj.Color = color
-							end
-						elseif obj:IsA("UIStroke") then
-							if typeof(color) == "Color3" then
-								obj.Color = color
-							end
-						elseif obj:IsA("Frame") or obj:IsA("CanvasGroup") then
-							if typeof(color) == "Color3" then
+							if obj:IsA("Frame") or obj:IsA("CanvasGroup") then
 								obj.BackgroundColor3 = color
-							end
-						elseif obj:IsA("TextLabel") or obj:IsA("TextButton") or obj:IsA("TextBox") then
-							if typeof(color) == "Color3" then
+							elseif obj:IsA("TextLabel") or obj:IsA("TextButton") or obj:IsA("TextBox") then
 								obj.TextColor3 = color
-							end
-						elseif obj:IsA("ImageLabel") or obj:IsA("ImageButton") then
-							if typeof(color) == "Color3" then
+							elseif obj:IsA("ImageLabel") or obj:IsA("ImageButton") then
 								obj.ImageColor3 = color
-							end
-						elseif obj:IsA("ScrollingFrame") then
-							if typeof(color) == "Color3" then
+							elseif obj:IsA("ScrollingFrame") then
 								obj.ScrollBarImageColor3 = color
+							elseif obj:IsA("UIStroke") then
+								obj.Color = color
+							elseif obj:IsA("UIGradient") then
+								obj.Color = color
 							end
 						end
 					end
@@ -1452,8 +1441,6 @@ function Library:Window(p)
 		Line.BorderSizePixel = 0
 		Line.Position = UDim2.new(0.5, 0, 0.5, 0)
 		Line.Size = UDim2.new(0.85, 0, 0, 1)
-		
-		return self
 	end
 
 	function Tabs:Tab(p)
@@ -4533,7 +4520,7 @@ function Library:Window(p)
 			if not firsttime then
 				firsttime = true
 				Tabs:Notify({
-					Title = 'atl4ntic',
+					Title = 'Dummy Kawaii',
 					Desc = 'Press the <font color="#FF77A5" size="14">('..tostring(Keybind):gsub("Enum.KeyCode.", "")..')</font> button to hide and show the UI',
 					Time = 10
 				})
