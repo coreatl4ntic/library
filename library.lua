@@ -3,8 +3,8 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stars
 
 -- Create Main Window
 local Window = Library:Window({
-    Title = "x2zu [ Stellar ]",
-    Desc = "x2zu on top",
+    Title = "atl4ntic [ Menu ]",
+    Desc = "atl4ntic on hee",
     Icon = 105059922903197,
     Theme = "Dark",
     Config = {
@@ -13,7 +13,7 @@ local Window = Library:Window({
     },
     CloseUIButton = {
         Enabled = true,
-        Text = "x2zu"
+        Text = "Menu"
     }
 })
 
