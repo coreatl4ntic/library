@@ -1,7 +1,5 @@
--- Load UI Library
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/StarsationSetanya/main/refs/heads/main/framework.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/coreatl4ntic/library/refs/heads/main/framework.lua"))()
 
--- Create Main Window
 local Window = Library:Window({
     Title = "atl4ntic [ Menu ]",
     Desc = "atl4ntic on hee",
@@ -13,26 +11,23 @@ local Window = Library:Window({
     },
     CloseUIButton = {
         Enabled = true,
-        Text = "Menu"
+        Text = "x2zu"
     }
 })
 
--- Sidebar Vertical Separator
 local SidebarLine = Instance.new("Frame")
 SidebarLine.Size = UDim2.new(0, 1, 1, 0)
-SidebarLine.Position = UDim2.new(0, 140, 0, 0) -- adjust if needed
+SidebarLine.Position = UDim2.new(0, 140, 0, 0)
 SidebarLine.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 SidebarLine.BorderSizePixel = 0
 SidebarLine.ZIndex = 5
 SidebarLine.Name = "SidebarLine"
-SidebarLine.Parent = game:GetService("CoreGui") -- Or Window.Gui if accessible
+SidebarLine.Parent = game:GetService("CoreGui")
 
--- Tab
 local Tab = Window:Tab({Title = "Main", Icon = "star"}) do
-    -- Section
+
     Tab:Section({Title = "All UI Components"})
 
-    -- Toggle
     Tab:Toggle({
         Title = "Enable Feature",
         Desc = "Toggle to enable or disable the feature",
@@ -42,7 +37,6 @@ local Tab = Window:Tab({Title = "Main", Icon = "star"}) do
         end
     })
 
-    -- Button
     Tab:Button({
         Title = "Run Action",
         Desc = "Click to perform something",
@@ -56,7 +50,6 @@ local Tab = Window:Tab({Title = "Main", Icon = "star"}) do
         end
     })
 
-    -- Textbox
     Tab:Textbox({
         Title = "Input Text",
         Desc = "Type something here",
@@ -68,7 +61,6 @@ local Tab = Window:Tab({Title = "Main", Icon = "star"}) do
         end
     })
 
-    -- Slider
     Tab:Slider({
         Title = "Set Speed",
         Min = 0,
@@ -80,7 +72,6 @@ local Tab = Window:Tab({Title = "Main", Icon = "star"}) do
         end
     })
 
-    -- Dropdown
     Tab:Dropdown({
         Title = "Choose Option",
         List = {"Option 1", "Option 2", "Option 3"},
@@ -90,22 +81,18 @@ local Tab = Window:Tab({Title = "Main", Icon = "star"}) do
         end
     })
 
-    -- Code Display
     local CodeBlock = Tab:Code({
         Title = "Example Code",
         Code = "-- This is a code preview\nprint('Hello world')"
     })
 
-    -- Simulate update
     task.delay(5, function()
         CodeBlock:SetCode("-- Updated!\nprint('New content loaded')")
     end)
 end
 
--- Line Separator
 Window:Line()
 
--- Another Tab Example
 local Extra = Window:Tab({Title = "Extra", Icon = "tag"}) do
     Extra:Section({Title = "About"})
     Extra:Button({
@@ -135,9 +122,9 @@ local Extra = Window:Tab({Title = "Settings", Icon = "wrench"}) do
         end
     })
 end
--- Final Notification
+
 Window:Notify({
-    Title = "x2zu",
-    Desc = "All components loaded successfully! Credits leak: @x2zu",
+    Title = "atl4ntic",
+    Desc = "All components loaded successfully! Credits leak: @atl4ntic",
     Time = 4
 })
