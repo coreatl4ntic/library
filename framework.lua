@@ -185,29 +185,18 @@ do
 				for _, obj in pairs(objs) do
 					if SaveTheme[name] then
 						for _, obj in pairs(SaveTheme[name]) do
-							if obj:IsA("UIGradient") then
-							if typeof(color) == "ColorSequence" then
-								obj.Color = color
-							end
-						elseif obj:IsA("UIStroke") then
-							if typeof(color) == "Color3" then
-								obj.Color = color
-							end
-						elseif obj:IsA("Frame") or obj:IsA("CanvasGroup") then
-							if typeof(color) == "Color3" then
+							if obj:IsA("Frame") or obj:IsA("CanvasGroup") then
 								obj.BackgroundColor3 = color
-							end
-						elseif obj:IsA("TextLabel") or obj:IsA("TextButton") or obj:IsA("TextBox") then
-							if typeof(color) == "Color3" then
+							elseif obj:IsA("TextLabel") or obj:IsA("TextButton") or obj:IsA("TextBox") then
 								obj.TextColor3 = color
-							end
-						elseif obj:IsA("ImageLabel") or obj:IsA("ImageButton") then
-							if typeof(color) == "Color3" then
+							elseif obj:IsA("ImageLabel") or obj:IsA("ImageButton") then
 								obj.ImageColor3 = color
-							end
-						elseif obj:IsA("ScrollingFrame") then
-							if typeof(color) == "Color3" then
+							elseif obj:IsA("ScrollingFrame") then
 								obj.ScrollBarImageColor3 = color
+							elseif obj:IsA("UIStroke") then
+								obj.Color = color
+							elseif obj:IsA("UIGradient") then
+								obj.Color = color
 							end
 						end
 					end
