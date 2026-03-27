@@ -185,18 +185,29 @@ do
 				for _, obj in pairs(objs) do
 					if SaveTheme[name] then
 						for _, obj in pairs(SaveTheme[name]) do
-							if obj:IsA("Frame") or obj:IsA("CanvasGroup") then
+							if obj:IsA("UIGradient") then
+							if typeof(color) == "ColorSequence" then
+								obj.Color = color
+							end
+						elseif obj:IsA("UIStroke") then
+							if typeof(color) == "Color3" then
+								obj.Color = color
+							end
+						elseif obj:IsA("Frame") or obj:IsA("CanvasGroup") then
+							if typeof(color) == "Color3" then
 								obj.BackgroundColor3 = color
-							elseif obj:IsA("TextLabel") or obj:IsA("TextButton") or obj:IsA("TextBox") then
+							end
+						elseif obj:IsA("TextLabel") or obj:IsA("TextButton") or obj:IsA("TextBox") then
+							if typeof(color) == "Color3" then
 								obj.TextColor3 = color
-							elseif obj:IsA("ImageLabel") or obj:IsA("ImageButton") then
+							end
+						elseif obj:IsA("ImageLabel") or obj:IsA("ImageButton") then
+							if typeof(color) == "Color3" then
 								obj.ImageColor3 = color
-							elseif obj:IsA("ScrollingFrame") then
+							end
+						elseif obj:IsA("ScrollingFrame") then
+							if typeof(color) == "Color3" then
 								obj.ScrollBarImageColor3 = color
-							elseif obj:IsA("UIStroke") then
-								obj.Color = color
-							elseif obj:IsA("UIGradient") then
-								obj.Color = color
 							end
 						end
 					end
@@ -205,7 +216,7 @@ do
 		end
 	end
 
-	local IconList = loadstring(game:HttpGet('https://raw.githubusercontent.com/StarsationSetanya/main/refs/heads/main/icons.lua'))()
+	local IconList = loadstring(game:HttpGet('https://raw.githubusercontent.com/coreatl4ntic/library/refs/heads/main/icons.lua'))()
 	function gl(i)
 		local iconData = IconList.Icons[i]
 		if iconData then
@@ -1441,6 +1452,8 @@ function Library:Window(p)
 		Line.BorderSizePixel = 0
 		Line.Position = UDim2.new(0.5, 0, 0.5, 0)
 		Line.Size = UDim2.new(0.85, 0, 0, 1)
+		
+		return self
 	end
 
 	function Tabs:Tab(p)
